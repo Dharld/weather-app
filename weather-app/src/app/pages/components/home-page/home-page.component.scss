@@ -1,0 +1,49 @@
+.sep {
+  height: 0.5px;
+  margin: 1.5rem 0;
+  background-color: var(--accent-color);
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0.25rem 2rem;
+  gap: 1rem;
+  .card {
+    flex: 0 0 fit-content;
+    box-shadow: 0 0px 5px 0px #d6d6d627;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: all 150ms ease-in;
+    min-width: 200px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--accent-color);
+      color: rgb(27, 27, 27);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 50%;
+    flex: 1 0 !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .card {
+    width: 100%;
+
+    flex: 1 0 !important;
+    flex-basis: auto !important;
+  }
+}
+
+.spinner-container {
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+}

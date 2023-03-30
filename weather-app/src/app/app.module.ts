@@ -6,9 +6,16 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
+import { DetailsPageComponent } from './pages/components/details-page/details-page.component';
+import { HomePageComponent } from './pages/components/home-page/home-page.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent],
+  declarations: [
+    AppComponent,
+    SearchComponent,
+    DetailsPageComponent,
+    HomePageComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
     {
