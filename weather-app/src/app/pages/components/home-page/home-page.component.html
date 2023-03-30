@@ -6,7 +6,11 @@
     class="results"
     *ngIf="weatherInformations.length > 0 && loading == false"
   >
-    <a *ngFor="let winf of weatherInformations" (click)="openDetailPage(winf)">
+    <a
+      *ngFor="let winf of weatherInformations"
+      [routerLink]="['informations', winf.id]"
+      [relativeTo]="null"
+    >
       <div class="card">
         <p>Name: {{ winf.name }}</p>
         <div class="informations">

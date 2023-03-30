@@ -34,8 +34,4 @@ export class HomePageComponent implements OnInit {
         this.loading = false;
       });
   }
-
-  openDetailPage(wInf: IResult) {
-    this.router.navigate(['informations', wInf.id]);
-  }
 }

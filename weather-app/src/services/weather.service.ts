@@ -7,6 +7,7 @@ import { Inject, Injectable } from '@angular/core';
 import { catchError, map, tap, from, lastValueFrom } from 'rxjs';
 import { ICoords } from 'src/models/coords.model';
 import { IResult } from 'src/models/results.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -65,5 +66,13 @@ export class WeatherService {
         throw err;
       });
     return Promise.all(promiseArray);
+  }
+
+  async getWInf(id: string) {
+    return lastValueFrom(
+      this._http.get<IResult>(
+        this.apiUrl + `/weather?id=${id}&appid=${this.apiKey}`
+      )
+    );
   }
 }
