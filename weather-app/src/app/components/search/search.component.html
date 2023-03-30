@@ -1,0 +1,10 @@
+<div class="input">
+  <input
+    type="text"
+    placeholder="city, country or code"
+    [value]="initialInput"
+    (input)="onChange(input.value)"
+    #input
+  />
+  <i class="search-icon pi pi-search"></i>
+</div>
