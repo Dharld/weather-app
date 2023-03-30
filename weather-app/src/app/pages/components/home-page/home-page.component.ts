@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IResult } from 'src/models/results.model';
 import { WeatherService } from 'src/services/weather.service';
 
@@ -11,7 +12,7 @@ export class HomePageComponent implements OnInit {
   loading = false;
   weatherInformations: IResult[] = [];
 
-  constructor(private weatherApi: WeatherService) {}
+  constructor(private weatherApi: WeatherService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -32,5 +33,9 @@ export class HomePageComponent implements OnInit {
       .finally(() => {
         this.loading = false;
       });
+  }
+
+  openDetailPage(wInf: IResult) {
+    this.router.navigate(['informations', wInf.id]);
   }
 }
