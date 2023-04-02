@@ -1,49 +1,129 @@
-.sep {
-  height: 0.5px;
-  margin: 1.5rem 0;
-  background-color: var(--accent-color);
+.spinner-container {
+  height: 30vh;
+  display: grid;
+  place-items: center;
 }
 
-.results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 0.25rem 2rem;
-  gap: 1rem;
-  .card {
-    flex: 0 0 fit-content;
-    box-shadow: 0 0px 5px 0px #d6d6d627;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    transition: all 150ms ease-in;
-    min-width: 200px;
-    cursor: pointer;
+//
 
-    &:hover {
-      background: var(--accent-color);
-      color: rgb(27, 27, 27);
+.search-container {
+  height: 50vh;
+  background: linear-gradient(to right, var(--bg-color) 70%, #0a7fc3);
+  margin: 0;
+  color: white;
+  display: grid;
+  place-items: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin: 2.5rem 0;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 0.25px;
+      bottom: -1rem;
+      background: white;
     }
   }
 }
 
-@media screen and (max-width: 600px) {
-  .card {
-    width: 50%;
-    flex: 1 0 !important;
-  }
-}
-@media screen and (max-width: 450px) {
-  .card {
-    width: 100%;
+.results {
+  position: relative;
 
-    flex: 1 0 !important;
-    flex-basis: auto !important;
-  }
-}
+  .first-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.spinner-container {
-  width: 100%;
-  height: 50vh;
-  display: grid;
-  place-items: center;
+    .options {
+      display: flex;
+
+      button {
+        margin-left: 1rem;
+        background: none;
+        transition: all 150ms ease-in;
+        cursor: pointer;
+        border: none;
+
+        &:hover {
+          color: #0a7fc3;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    a {
+      min-width: 300px;
+      flex: 1;
+
+      .card {
+        padding: 1.25rem 1rem;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.036);
+        border-radius: 5px;
+        background: rgba(240, 239, 239);
+        color: #2c2f2f;
+        transition: all 150ms ease-in;
+
+        &:hover {
+          box-shadow: 0 5px 7px rgba(0, 0, 0, 0.126);
+        }
+        .informations {
+          display: flex;
+          flex-direction: column;
+          p {
+            margin: 0.125rem;
+          }
+          .temperature {
+            font-size: 1.85rem;
+            font-weight: 500;
+            border-bottom: 1px solid #3f3f3f4e;
+            padding-bottom: 0.25rem;
+          }
+
+          .weather {
+            padding-top: 0.25rem;
+            font-size: 1.125rem;
+            color: #515151;
+          }
+
+          .row {
+            display: flex;
+            gap: 14px;
+            margin: 0.25rem 0;
+            color: rgb(181, 181, 181);
+            span {
+              display: flex;
+              align-items: center;
+              gap: 4px;
+            }
+            span:not(:last-child) {
+              position: relative;
+
+              /* &::before {
+                content: "";
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: #2c2f2f;
+                right: -10px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+              } */
+            }
+          }
+        }
+      }
+    }
+  }
 }

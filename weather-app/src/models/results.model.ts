@@ -19,7 +19,7 @@ export interface IResult {
     pressure: number;
     humidity: number;
     sea_level: number;
-    grnd_level: 933;
+    grnd_level: number;
   };
   visibility: number;
   wind: {
@@ -31,7 +31,7 @@ export interface IResult {
     '1h'?: number;
     '3h'?: number;
   };
-  snow: {
+  snow?: {
     '1h'?: number;
     '3h'?: number;
   };

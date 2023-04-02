@@ -1,10 +1,29 @@
 @import "primeicons/primeicons.css";
 
 :root {
-  --primary-base: #87cefa;
-  --white: #fff;
-  --accent-color: #d3d3d3;
-  --secondary-base: #ffa500;
+  --bg-color: #0ba4fc;
+  --text-color: rgba(255, 255, 255, 1);
+  --text-soft-color: rgba(255, 255, 255, 1);
+  --text-strong-color: rgba(255, 255, 255, 1);
+  --subtle-color: rgba(0, 148, 234, 1);
+  --border-color: rgba(139, 186, 243, 1);
+  --shadow-color: rgba(0, 108, 172, 1);
+  --input-color: rgba(0, 132, 209, 1);
+  --outline-color: rgba(168, 203, 250, 1);
+  --dark-surface: rgba(54, 54, 54, 71);
+  --gray: #343434;
+  --light-surface: #e2e2e2;
+  --special-color: rgba(255, 255, 255, 1);
+  --special-bg-color: rgba(255, 255, 255, 1);
+  --special-text-color: rgba(0, 154, 242, 1);
+  --special-shadow-color: rgba(118, 159, 209, 1);
+  --special-mark-color: rgba(0, 154, 242, 0.08);
+  --light-color: rgba(237, 244, 255, 1);
+  --dark-color: rgba(45, 73, 103, 1);
+
+  //
+
+  // Neutrals
 }
 
 body {
@@ -12,6 +31,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: "product sans";
+  min-height: 100vh;
+  position: relative;
 }
 
 .container {
@@ -21,8 +42,8 @@ body {
 }
 
 .spinner {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border: 5px solid #d3d3d3;
   border-top: 5px solid #303030;
   border-radius: 50%;
@@ -42,4 +63,8 @@ a {
   display: block;
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  margin: 1rem;
 }

@@ -1,33 +1,112 @@
-<div class="container">
-  <h2>Enter a city name, code or country</h2>
-  <app-search (textChange)="search($event)"></app-search>
+<!-- <div class="container">
   <div class="sep"></div>
   <div
     class="results"
-    *ngIf="weatherInformations.length > 0 && loading == false"
+
   >
     <a
-      *ngFor="let winf of weatherInformations"
-      [routerLink]="['informations', winf.id]"
-      [relativeTo]="null"
+
     >
       <div class="card">
-        <p>Name: {{ winf.name }}</p>
-        <div class="informations">
-          <p>Temperature: {{ winf.main.temp }} F</p>
-          <p>Max temperature: {{ winf.main.temp_max }} F</p>
-          <p>Min temperature: {{ winf.main.temp_min }} F</p>
-          <p>pressure: {{ winf.main.pressure }} Pa</p>
-          <p>humidity: {{ winf.main.humidity }} g.m^3</p>
-        </div>
+
       </div>
     </a>
   </div>
-  <div class="spinner-container" *ngIf="loading == true">
-    <div class="spinner"></div>
-  </div>
 
-  <div *ngIf="weatherInformations.length == 0 && loading == false">
-    There's no results
+</div> -->
+
+<section class="search-container">
+  <div class="container">
+    <h2 la>Enter a city name, code or country</h2>
+    <app-search (textChange)="search($event)"></app-search>
   </div>
-</div>
+</section>
+
+<section class="results">
+  <div class="container">
+    <div class="first-line">
+      <h3>Results</h3>
+      <div class="options" *ngIf="weatherInformations.length > 0">
+        <div class="unit">
+          <label for="celsius"> Celsius </label>
+          <input
+            type="radio"
+            name="unit"
+            id="celsius"
+            value="Celsius"
+            (click)="changeUnit($event)"
+          />
+          <label for="farheneit"> Farheneit </label>
+          <input
+            type="radio"
+            name="unit"
+            id="farheneit"
+            value="Farenheit"
+            (click)="changeUnit($event)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="cards"
+      *ngIf="weatherInformations.length > 0 && loading == false"
+    >
+      <a
+        *ngFor="let winf of weatherInformations"
+        [routerLink]="['informations', winf.id]"
+        [relativeTo]="null"
+      >
+        <div class="card">
+          <div class="informations">
+            <p class="temperature">{{ winf.main.temp }} {{ unit }}</p>
+            <p class="weather">
+              {{ winf.weather[0].main }}
+            </p>
+            <div class="row">
+              <span>
+                {{ winf.name }}
+              </span>
+
+              <span>
+                <i><img src="assets/icons8_humidity_96px" alt="" /></i
+                ><i
+                  ><img
+                    src="../../../../assets/icons8_air_instrumentation_96px.png"
+                    alt=""
+                    width="16px"
+                /></i>
+                {{ winf.wind.speed }}
+              </span>
+            </div>
+            <div class="row">
+              <span>
+                <i
+                  ><img
+                    src="../../../../assets/icons8_pressure_96px_1.png"
+                    alt=""
+                    width="16px" /></i
+                >{{ winf.main.pressure }} Pa</span
+              >
+              <span
+                ><i
+                  ><img
+                    src="../../../../assets/icons8_humidity_96px.png"
+                    alt=""
+                    width="16px" /></i
+                >{{ winf.main.humidity }} g.m^3</span
+              >
+            </div>
+          </div>
+          <div class="date"></div>
+        </div>
+      </a>
+    </div>
+    <div class="spinner-container" *ngIf="loading == true">
+      <div class="spinner"></div>
+    </div>
+    <div *ngIf="weatherInformations.length == 0 && loading == false">
+      There's no results
+    </div>
+  </div>
+</section>
